@@ -17,13 +17,16 @@ class ChatInput extends Component {
 
   handlerClick = () => {
     this.props.callback(this.state.msg);
+    this.setState({
+      msg: '',
+    });
   };
 
   render() {
     return (
       <footer className="ChatInput">
-        <input type="text" onChange={this.udateMsg} />
-        <button type="button" onClick={this.handlerClick}>
+        <input type="text" onChange={this.udateMsg} value={this.state.msg} />
+        <button type="button" className="btn-submit" onClick={this.handlerClick}>
           Send
         </button>
       </footer>
